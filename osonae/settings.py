@@ -27,11 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+LOGIN_URL = "accounts/login/"
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -132,10 +133,11 @@ STATIC_URL = '/static/'
 # TWITTER AUTH SETTINGS
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
-SOCIAL_AUTH_PIPELINE = [
-    'social_core.pipeline.social_auth.social_uid',
-]
+#SOCIAL_AUTH_PIPELINE = [
+#    'social_core.pipeline.social_auth.social_uid',
+#]
 
-SOCIAL_AUTH_USER_MODEL = 'accounts.MyUser'
+# SOCIAL_AUTH_USER_MODEL is not valid !!!!!
+AUTH_USER_MODEL = 'accounts.MyUser'
 
 from .secret import *
