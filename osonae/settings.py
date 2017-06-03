@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -51,10 +53,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'osonae.urls'
 
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.twitter.TwitterOAuth',
+    # 'django.contrib.auth.backends.ModelBackend'
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["accounts/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -62,6 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -118,3 +127,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# TWITTER AUTH SETTINGS
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+SOCIAL_AUTH_PIPELINE = [
+    'social_core.pipeline.social_auth.social_uid',
+]
+
+SOCIAL_AUTH_USER_MODEL = 'accounts.MyUser'
+
+from .secret import *
