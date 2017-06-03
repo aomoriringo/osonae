@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'accounts',
+    'extends',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'osonae.urls'
 
 AUTHENTICATION_BACKENDS = [
-    'social_core.backends.twitter.TwitterOAuth',
+    # 'social_core.backends.twitter.TwitterOAuth',
+    'extends.twitter.TwitterOAuth',
     # 'django.contrib.auth.backends.ModelBackend'
 ]
 
