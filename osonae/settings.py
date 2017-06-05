@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
+    'bootstrap4',
     'accounts',
     'extends',
 ]
@@ -64,7 +65,7 @@ AUTHENTICATION_BACKENDS = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["accounts/templates"],
+        'DIRS': ["osonae/templates", "accounts/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,8 +132,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+#
 # TWITTER AUTH SETTINGS
+#
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 #SOCIAL_AUTH_PIPELINE = [
