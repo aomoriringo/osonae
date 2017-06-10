@@ -17,7 +17,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="{% url 'home:index' %}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Received</a>
@@ -32,7 +32,8 @@
               <img src="{{ user.icon_url }}" width="20" height="20">
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Logout</a>
+              <a class="dropdown-item" href="{% url 'accounts:profile' %}">Profile</a>
+              <a class="dropdown-item" href="{% url 'accounts:logout' %}">Logout</a>
             </div>
           </li>
         </ul>

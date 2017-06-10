@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from .models import MyUser
+from django.contrib.auth.decorators import login_required
 
 def login(request):
     return render(request, 'accounts/login.html')
 
+@login_required
 def profile(request):
     print(request.method)
     if request.method == 'POST':
