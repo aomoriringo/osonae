@@ -11,5 +11,5 @@ class TwitterOAuth(auth):
                 'fullname': fullname,
                 'first_name': first_name,
                 'last_name': last_name,
-                'image_url': response.get('profile_image_url', '')}
+                'icon_url': response.get('profile_image_url', '')}
 

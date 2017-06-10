@@ -3,7 +3,7 @@ from . import views
 from django.contrib.auth.views import logout
 
 urlpatterns = [
-        url(r'^login', views.login),
-        url(r'^profile', views.profile),
+        url(r'^login', views.login, name='login'),
+        url(r'^profile/$', views.profile, name='profile'),
         url(r'^logout', logout, name='logout'),
 ]

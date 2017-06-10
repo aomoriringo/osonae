@@ -5,7 +5,9 @@ def login(request):
     return render(request, 'accounts/login.html')
 
 def profile(request):
-    print(dir(request))
+    print(request.method)
+    if request.method == 'POST':
+        request.user.update(request)
     return render(request, 'accounts/profile.html')
 
 #def logout(request):
