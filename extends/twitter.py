@@ -7,6 +7,7 @@ class TwitterOAuth(auth):
         """Return user details from Twitter account"""
         fullname, first_name, last_name = self.get_user_names(response['name'])
         return {'username': response['screen_name'],
+                'display_name': response['name'],
                 'email': response.get('email', ''),
                 'fullname': fullname,
                 'first_name': first_name,

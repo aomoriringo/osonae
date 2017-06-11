@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'social_django',
     'bootstrap4',
     'accounts',
+    'posts',
     'extends',
 ]
 

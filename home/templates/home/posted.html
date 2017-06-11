@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="mt-2 ml-2 mr-2">
+<h2>Posted</h2>
+{% if posted|length > 1 %}
+{% for post in posted %}
+  <div class="card mb-2">
+    <div class="card-block">
+      <h5 class="card-title"><a href="{{ post.url }}">{{ post.url }}</a></h5>
+      <p>{{ post.comment }}</p>
+    </div>
+  </div>
+
+  {% endfor %}
+{% else %}
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">No posts yet.</h4>
+  <p> Let's <strong>osonae</strong> to your friends.</p>
+</div>
+{% endif %}
+</div>
+{% endblock %}

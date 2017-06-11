@@ -10,6 +10,12 @@
     </div>
   </div>
   <div class="form-group row">
+    <label for="display_name" class="col-2 col-form-label">Display Name</label>
+    <div class="col-4">
+      <input class="form-control" type="text" value="{{ user.display_name }}" name="display_name">
+    </div>
+  </div>
+  <div class="form-group row">
     <label for="icon_url" class="col-2 col-form-label">Icon URL</label>
     <div class="col-4">
       <input class="form-control" type="text" value="{{ user.icon_url }}" name="icon_url">

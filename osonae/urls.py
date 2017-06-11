@@ -20,8 +20,7 @@ urlpatterns = [
                                  namespace='social')),
         # url(r'^admin/', admin.site.urls),
         url(r'^accounts/', include('accounts.urls', namespace="accounts")),
-        url(r'^users/', include('users.urls', namespace="users")
-            ),
+        url(r'^users/', include('users.urls', namespace="users")),
         url(r'^', include('home.urls', namespace="home")),
 
 ]

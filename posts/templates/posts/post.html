@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form class="mt-2 ml-2" action="{% url 'home:post' %}" method="post">
+  {% csrf_token %}
+  <div class="form-group row">
+    <label for="target" class="col-2 col-form-label">Target Username</label>
+    <div class="col-4">
+      <input class="form-control" type="text" value="" name="target">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="url" class="col-2 col-form-label">URL</label>
+    <div class="col-4">
+      <input class="form-control" type="text" value="" name="url">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="comment" class="col-2 col-form-label">Comment</label>
+    <div class="col-4">
+      <input class="form-control" type="text" value="" name="comment">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Send</button>
+</form>
+
+{% endblock %}
