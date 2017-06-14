@@ -3,8 +3,8 @@
 
 <div class="mt-2 ml-2 mr-2">
 <h2>Posted</h2>
-{% if posted|length > 1 %}
-{% for post in posted %}
+{% if posts|length > 1 %}
+{% for post in posts %}
   <div class="card mb-2">
     <div class="card-block">
       <h5 class="card-title"><a href="{{ post.url }}">{{ post.url }}</a></h5>

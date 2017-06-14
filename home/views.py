@@ -5,11 +5,16 @@ from posts.models import Post
 
 @login_required
 def home(request):
-    return render(request, 'home/index.html')
+    not_consumed_posts = Post.objects.filter(feedback__owner=request.user
+            ).filter(feedback__consumed=False
+            ).order_by('created_at')
+    context = {'posts': not_consumed_posts}
+    return render(request, 'home/index.html', context)
 
+@login_required
 def posted(request):
-    posted = Post.objects.filter(owner=request.user).order_by
-    context = {'posted': posted}
+    my_posts = Post.objects.filter(owner=request.user).order_by('created_at')
+    context = {'posts': my_posts}
     return render(request, 'home/posted.html', context)
 
 # def following(requests, screen_name):
