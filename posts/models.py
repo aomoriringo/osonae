@@ -8,6 +8,14 @@ class Post(models.Model):
     comment = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    @property
+    def feedbacks(self):
+        return Feedback.objects.filter(post__id = self.id)
+
+    @property
+    def receivers(self):
+        return [x.owner for x in self.feedbacks]
+
 class Feedback(models.Model):
     STATUS_NEUTRAL = 0
     STATUS_LIKE = 1
