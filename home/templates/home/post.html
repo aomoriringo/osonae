@@ -2,7 +2,7 @@
   <div class="card-block">
     <a href="/users/{{ post.owner.username }}"> @{{ post.owner.username }}</a> -> [postされたユーザ]
     <h5 class="card-title"><a href="{{ post.url }}">{{ post.url }}</a></h5>
-    <p>{{ post.comment }}</p>
+    {{ post.comment }}
   </div>
 </div>
 
