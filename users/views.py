@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request, screen_name):
-    return HttpResponse(f'Congratulations, {screen_name} is dead.')
+    context = None
+    return render(request, 'users/profile.html', context)
 
 def following(requests, screen_name):
     return HttpResponse(f'{screen_name} following')

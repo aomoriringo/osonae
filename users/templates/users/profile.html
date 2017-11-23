@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+
+<img src="{{ user.icon_url }}" width="200" height="200"/>
+
+{{ user.display_name }}
+@{{ user.username}}
+
+{{ user.bio }}
+
+{% endblock %}
