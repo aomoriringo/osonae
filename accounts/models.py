@@ -16,3 +16,4 @@ class MyUser(AbstractUser):
         self.icon_url = params['icon_url']
         self.bio = params['bio']
         self.save()
+

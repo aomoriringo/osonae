@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<img src="{{ user.icon_url }}" width="200" height="200"/>
+<img src="{{ specified_user.icon_url }}" width="200" height="200"/>
 
-{{ user.display_name }}
-@{{ user.username}}
+{{ specified_user.display_name }}
+@{{ specified_user.username}}
 
-{{ user.bio }}
+{{ specified_user.user.bio }}
 
 {% endblock %}
