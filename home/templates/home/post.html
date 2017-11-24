@@ -8,6 +8,13 @@
     {% endfor %}
     <h5 class="card-title"><a href="{{ post.url }}">{{ post.url }}</a></h5>
     {{ post.comment }}
+    <br>
+    <button type="button" class="btn btn-outline-primary btn-sm">
+      <span class="oi oi-check" title="check" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-outline-danger btn-sm">
+      <span class="oi oi-heart" title="heart" aria-hidden="true"></span>
+    </button>
   </div>
 </div>
 
