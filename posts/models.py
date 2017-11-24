@@ -26,16 +26,23 @@ class Post(models.Model):
 
     @property
     def feedbacks(self):
-        return Feedback.objects.filter(post__id = self.id)
+        return Feedback.objects.filter(post = self)
 
     @property
     def receivers(self):
         return [x.owner for x in self.feedbacks]
 
-    def is_liked(self, user):
-        feedbacks = self.feedbacks.filter(owner__id = user.id)
+    def get_feedback_by_user(self, user):
+        feedbacks = self.feedbacks.filter(owner = user)
         if len(feedbacks) > 0:
-            return feedbacks[0].status == Feedback.STATUS_LIKE
+            return feedbacks[0]
+        else:
+            None
+
+    def is_liked(self, user):
+        feedback = self.get_feedback_by_user(user)
+        if feedback:
+            return feedback.is_liked
         else:
             return False
 
@@ -55,3 +62,8 @@ class Feedback(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    @property
+    def is_liked(self):
+        return self.status == STATUS_LIKE
+
