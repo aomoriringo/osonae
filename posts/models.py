@@ -8,6 +8,22 @@ class Post(models.Model):
     comment = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    @classmethod
+    def own_posts(cls, user):
+        return cls.objects.filter(owner=user)
+
+    @classmethod
+    def received_posts(cls, user):
+        return cls.objects.filter(feedback__owner=user)
+
+    @classmethod
+    def consumed_posts(cls, user):
+        return cls.received_posts(user).filter(feedback__consumed=True)
+
+    @classmethod
+    def not_consumed_posts(cls, user):
+        return cls.received_posts(user).filter(feedback__consumed=False)
+
     @property
     def feedbacks(self):
         return Feedback.objects.filter(post__id = self.id)
