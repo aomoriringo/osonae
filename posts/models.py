@@ -24,6 +24,10 @@ class Post(models.Model):
     def not_consumed_posts(cls, user):
         return cls.received_posts(user).filter(feedback__consumed=False)
 
+    @classmethod
+    def liked_posts(cls, user):
+        return cls.received_posts(user).filter(feedback__status=Feedback.STATUS_LIKE)
+
     @property
     def feedbacks(self):
         return Feedback.objects.filter(post = self)

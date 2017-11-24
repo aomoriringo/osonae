@@ -11,8 +11,12 @@ def home(request):
 
 @login_required
 def received(request):
+    not_consumed_posts = Post.not_consumed_posts(request.user).order_by('created_at')
     received_posts = Post.received_posts(request.user).order_by('created_at')
-    context = {'posts': received_posts}
+    liked_posts = Post.liked_posts(request.user).order_by('created_at')
+    context = {'received_posts': received_posts,
+               'not_consumed_posts': not_consumed_posts,
+               'liked_posts': liked_posts}
     return render(request, 'home/received.html', context)
 
 @login_required

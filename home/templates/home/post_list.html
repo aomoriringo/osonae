@@ -1,0 +1,10 @@
+{% if posts|length > 1 %}
+  {% for post in posts %}
+    {% include "home/post.html" %}
+  {% endfor %}
+{% else %}
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">No posts yet.</h4>
+</div>
+{% endif %}
+
