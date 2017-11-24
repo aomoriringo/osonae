@@ -17,3 +17,10 @@ class MyUser(AbstractUser):
         self.bio = params['bio']
         self.save()
 
+    @classmethod
+    def get_user_by_screen(cls, username):
+        users = cls.objects.filter(username=username)
+        if len(users) > 0:
+            return users[0]
+        else:
+            return None

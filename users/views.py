@@ -3,9 +3,8 @@ from django.http import HttpResponse
 from accounts.models import MyUser
 
 def home(request, screen_name):
-    users = MyUser.objects.filter(username=screen_name)
-    if len(users) > 0:
-        specified_user = users[0]
+    specified_user = MyUser.get_user_by_screen(screen_name)
+    if specified_user:
         context = {"specified_user": specified_user}
         return render(request, 'users/profile.html', context)
     else:
