@@ -21,10 +21,3 @@ def posted(request):
     context = {'posts': my_posts}
     return render(request, 'home/posted.html', context)
 
-# def following(requests, screen_name):
-#     return HttpResponse(f'{screen_name} following')
-#
-# def followers(requests, screen_name):
-#     return HttpResponse(f'{screen_name} followers')
-
-

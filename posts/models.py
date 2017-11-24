@@ -32,6 +32,13 @@ class Post(models.Model):
     def receivers(self):
         return [x.owner for x in self.feedbacks]
 
+    def is_liked(self, user):
+        feedbacks = self.feedbacks.filter(owner__id = user.id)
+        if len(feedbacks) > 0:
+            return feedbacks[0].status == Feedback.STATUS_LIKE
+        else:
+            return False
+
 class Feedback(models.Model):
     STATUS_NEUTRAL = 0
     STATUS_LIKE = 1
