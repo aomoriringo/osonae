@@ -9,6 +9,10 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     @classmethod
+    def get_post_by_id(cls, id):
+        return cls.objects.get(id=id)
+
+    @classmethod
     def own_posts(cls, user):
         return cls.objects.filter(owner=user)
 

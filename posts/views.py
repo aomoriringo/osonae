@@ -2,7 +2,11 @@ from django.shortcuts import render, redirect
 from .models import Post, Feedback
 from django.contrib.auth.decorators import login_required
 from accounts.models import MyUser
+from posts.models import Post
 
+def post_detail(request, id):
+    context = {'post': Post.get_post_by_id(id)}
+    return render(request, 'posts/detail.html', context)
 
 @login_required
 def post(request):

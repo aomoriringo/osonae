@@ -16,6 +16,3 @@ def following(requests, screen_name):
 def followers(requests, screen_name):
     return HttpResponse(f'{screen_name} followers')
 
-def dummy(request):
-    return HttpResponse('fuck')
-
