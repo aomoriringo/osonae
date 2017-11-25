@@ -6,9 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>osonae.me</title>
+    <script src="{% static "jquery/jquery-3.1.1.min.js" %}"></script>
+    {% bootstrap_javascript jquery=False %}
     {% bootstrap_css %}
-    {% bootstrap_javascript jquery=True %}
-    <link href={% static "open-iconic/font/css/open-iconic-bootstrap.min.css" %} rel="stylesheet">
+    <link href="{% static "osonae.css" %}" rel="stylesheet">
+    <link href="{% static "open-iconic/font/css/open-iconic-bootstrap.min.css" %}" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">

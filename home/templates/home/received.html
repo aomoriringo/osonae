@@ -31,6 +31,37 @@
 {% endblock %}
 {% block extend_js %}
 $(function () {
-  $('#received a:last').tab('show')
+  $('#received a:last').tab('show');
+
+  $('.like-icon').click(function() {
+    var post_id = $(this).attr("data-id");
+    var url = "{% url 'posts:post' %}" + post_id + "/toggle_like";
+    $.ajax(url,
+      {
+        type: 'post',
+        headers: {
+          'X-CSRFToken': "{{ csrf_token }}"
+        },
+        data: {},
+        dataType: 'json'
+      }
+      ).done(function(data){
+      });
+  });
+
+  $('.consume-icon').click(function() {
+    var post_id = $(this).attr("data-id");
+    var url = "{% url 'posts:post' %}" + post_id + "/toggle_consume";
+    $.ajax(url,
+      {
+        type: 'post',
+        headers: {
+          'X-CSRFToken': "{{ csrf_token }}"
+        },
+        data: {},
+        dataType: 'json'
+      }
+    );
+  });
 })
 {% endblock extend_js %}
