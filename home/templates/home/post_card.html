@@ -16,14 +16,14 @@
       {% if f.owner == user %}
         <button class="btn btn-sm btn-link like-button" data-id="{{ post.id }}">
         {% if f.is_liked %}
-        <span class="text-danger oi oi-heart" title="いい" aria-hidden="true"></span>
+        <span class="text-danger oi oi-heart like-icon" title="いい" aria-hidden="true"></span>
         {% else %}
-        <span class="text-muted oi oi-heart" title="いい" aria-hidden="true"></span>
+        <span class="text-muted oi oi-heart like-icon" title="いい" aria-hidden="true"></span>
         {% endif %}
         </button>
         {% if not f.consumed %}
         <button class="btn btn-sm btn-link consume-button" data-id="{{ post.id }}">
-        <span class="text-muted oi oi-check" title="みた" aria-hidden="true"></span>
+        <span class="text-muted oi oi-check consume-icon" title="みた" aria-hidden="true"></span>
         </button>
         {% else %}
         {% endif %}
