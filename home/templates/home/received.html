@@ -33,7 +33,7 @@
 $(function () {
   $('#received a:last').tab('show');
 
-  $('.like-icon').click(function() {
+  $('.like-button').click(function() {
     var post_id = $(this).attr("data-id");
     var url = "{% url 'posts:post' %}" + post_id + "/toggle_like";
     $.ajax(url,
@@ -49,7 +49,7 @@ $(function () {
       });
   });
 
-  $('.consume-icon').click(function() {
+  $('.consume-button').click(function() {
     var post_id = $(this).attr("data-id");
     var url = "{% url 'posts:post' %}" + post_id + "/toggle_consume";
     $.ajax(url,
