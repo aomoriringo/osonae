@@ -19,6 +19,7 @@ urlpatterns = [
         url(r'^auth/', include('social_django.urls',
                                  namespace='social')),
         # url(r'^admin/', admin.site.urls),
+        url(r'^posts/', include('posts.urls', namespace="posts")),
         url(r'^accounts/', include('accounts.urls', namespace="accounts")),
         url(r'^users/', include('users.urls', namespace="users")),
         url(r'^', include('home.urls', namespace="home")),
