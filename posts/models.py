@@ -47,6 +47,13 @@ class Post(models.Model):
         else:
             None
 
+    def is_consumed(self, user):
+        feedback = self.get_feedback_by_user(user)
+        if feedback:
+            return feedback.consumed
+        else:
+            return False
+
     def is_liked(self, user):
         feedback = self.get_feedback_by_user(user)
         if feedback:
@@ -73,5 +80,5 @@ class Feedback(models.Model):
 
     @property
     def is_liked(self):
-        return self.status == STATUS_LIKE
+        return self.status == Feedback.STATUS_LIKE
 
