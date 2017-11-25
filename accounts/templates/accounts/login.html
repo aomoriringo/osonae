@@ -1,7 +1,12 @@
-{% extends "base.html" %}
+{% extends "not_login_base.html" %}
 {% block content %}
 
-osonae.meは他人によさそうなURLを投げつけるサービスです
-
+<div class="jumbotron">
+  <h1 class="display-3">osonae.me</h1>
+  <p class="lead">osonae.meは他人によさそうなURLを投げつけるサービスです</p>
+  <p class="lead">
+  <a class="btn btn-primary btn-lg" href="{% url "social:begin" "twitter" %}" role="button">Login with Twitter</a>
+  </p>
+</div>
 {% endblock %}
 

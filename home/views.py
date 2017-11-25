@@ -5,7 +5,7 @@ from posts.models import Post
 
 @login_required
 def home(request):
-    not_consumed_posts = Post.not_consumed_posts(request.user).order_by('created_at')
+    not_consumed_posts = Post.not_consumed_posts(request.user)
     context = {'posts': not_consumed_posts}
     return render(request, 'home/index.html', context)
 
