@@ -22,7 +22,8 @@ def post(request):
         f.save()
         return redirect('/posted/')
     else:
-        return render(request, 'posts/post.html')
+        return redirect('/')
+        # return render(request, 'posts/post.html')
 
 @login_required
 def consume(request):

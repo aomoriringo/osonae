@@ -1,0 +1,36 @@
+<div class="card mb-2">
+  <div class="card-block">
+    <a href="/posts/{{ post.id }}">detail</a><br>
+    <span class="badge badge-default">From</span>
+    <a href="/users/{{ post.owner.username }}">@{{ post.owner.username }}</a>
+    <!--
+    <span class="badge badge-default">To</span>
+    {% for receiver in post.receivers %}
+    <a href="/users/{{ receiver.username }}">@{{ receiver.username }}</a> 
+    {% endfor %}
+    -->
+    <h5 class="card-title"><a href="{{ post.url }}">{{ post.url }}</a></h5>
+    {% if post.comment %}
+      {{ post.comment }}
+      <br>
+    {% endif %}
+
+    {% comment %}
+      forなんか回したくない...
+    {% endcomment %}
+    {% for f in post.feedbacks %}
+      {% if f.owner == user %}
+        {% if f.is_liked %}
+          <span class="text-danger oi oi-heart" title="いい" aria-hidden="true"></span>
+        {% else %}
+          <span class="text-muted oi oi-heart" title="いい" aria-hidden="true"></span>
+        {% endif %}
+        {% if not f.consumed %}
+          <span class="text-muted oi oi-check" title="みた" aria-hidden="true"></span>
+        {% else %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+

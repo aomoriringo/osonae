@@ -3,15 +3,6 @@
 
 <div class="mt-2 ml-2 mr-2">
 <h2>Posted</h2>
-{% if posts|length > 1 %}
-  {% for post in posts %}
-    {% include "home/post.html" %}
-  {% endfor %}
-{% else %}
-<div class="alert alert-success" role="alert">
-  <h4 class="alert-heading">No posts yet.</h4>
-  <p> Let's <strong>osonae</strong> to your friends.</p>
-</div>
-{% endif %}
+{% include "home/post_list.html" %}
 </div>
 {% endblock %}
