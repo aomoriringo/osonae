@@ -4,8 +4,8 @@ from accounts.models import MyUser
 
 class Post(models.Model):
     owner = models.ForeignKey(MyUser, on_delete=models.CASCADE)
-    url = models.URLField(max_length=500)
-    comment = models.CharField(max_length=200)
+    url = models.URLField(max_length=500, blank=False)
+    comment = models.CharField(max_length=200, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

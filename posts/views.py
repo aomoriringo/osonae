@@ -1,8 +1,21 @@
 from django.shortcuts import render, redirect
 from .models import Post, Feedback
 from django.contrib.auth.decorators import login_required
+from django.views.generic import FormView
 from accounts.models import MyUser
 from posts.models import Post
+from .forms import PostForm
+
+
+class PostView(FormView):
+    form_class = PostForm
+    template_name = 'posts/post.html'
+    success_url = '/posted/'
+
+    def form_valid(self, form):
+        form.save_post(self.request)
+        return super(PostView, self).form_valid(form)
+
 
 def post_detail(request, id):
     context = {'post': Post.get_post_by_id(id)}
@@ -23,7 +36,6 @@ def post(request):
         return redirect('/posted/')
     else:
         return redirect('/')
-        # return render(request, 'posts/post.html')
 
 @login_required
 def consume(request):
