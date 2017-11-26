@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.views.generic import FormView
 from django.http import JsonResponse
@@ -16,6 +17,10 @@ class PostView(FormView):
     def form_valid(self, form):
         form.save_post(self.request)
         return super(PostView, self).form_valid(form)
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(PostView, self).dispatch(*args, **kwargs)
 
 def post_detail(request, id):
     context = {'post': Post.get_post_by_id(id)}
