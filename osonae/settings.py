@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'bootstrap4',
+    'osonae',
     'accounts',
     'posts',
     'extends',
@@ -71,7 +72,8 @@ TEMPLATES = [
         'DIRS': [
             "osonae/templates",
             "accounts/templates",
-            "home/templates"],
+            "home/templates",
+            "users/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
