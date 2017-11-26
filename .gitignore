@@ -103,4 +103,4 @@ ENV/
 osonae/secret.py
 
 # sqlite
-db.sqlite3
+db/db.sqlite3
