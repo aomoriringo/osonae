@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'hx!m)^x^_7@5frn6jj0&sxz-ztbjtw()cz_qjwril=s7-d0d7j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'posts',
     'extends',
     'users',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -73,7 +74,9 @@ TEMPLATES = [
             "osonae/templates",
             "accounts/templates",
             "home/templates",
-            "users/templates"],
+            "users/templates",
+            "posts/templates",
+            "extends/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -141,8 +144,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    '/var/www/static/',
+    # '/var/www/osonae/static/',
 ]
+STATIC_ROOT = "/var/www/osonae/static/"
 
 #
 # TWITTER AUTH SETTINGS
