@@ -11,7 +11,7 @@ class MyUser(AbstractUser):
 
     def update(self, request):
         params = request.POST
-        self.username = params['username']
+        # self.username = params['username']
         self.display_name = params['display_name']
         self.icon_url = params['icon_url']
         self.bio = params['bio']
