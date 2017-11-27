@@ -32,36 +32,5 @@
 {% block extend_js %}
 $(function () {
   $('#received a:last').tab('show');
-
-  $('.like-button').click(function() {
-    var post_id = $(this).attr("data-id");
-    var url = "{% url 'posts:post' %}" + post_id + "/toggle_like";
-    $.ajax(url,
-      {
-        type: 'post',
-        headers: {
-          'X-CSRFToken': "{{ csrf_token }}"
-        },
-        data: {},
-        dataType: 'json'
-      }
-      ).done(function(data){
-      });
-  });
-
-  $('.consume-button').click(function() {
-    var post_id = $(this).attr("data-id");
-    var url = "{% url 'posts:post' %}" + post_id + "/toggle_consume";
-    $.ajax(url,
-      {
-        type: 'post',
-        headers: {
-          'X-CSRFToken': "{{ csrf_token }}"
-        },
-        data: {},
-        dataType: 'json'
-      }
-    );
-  });
 })
 {% endblock extend_js %}

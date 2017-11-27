@@ -43,6 +43,50 @@
     {% block content %}
     {% endblock %}
     <script>
+$(function () {
+  $('.like-button').click(function() {
+    var post_id = $(this).attr("data-id");
+    var url = "{% url 'posts:post' %}" + post_id + "/toggle_like";
+    $.ajax(url,
+      {
+        type: 'post',
+        headers: {
+          'X-CSRFToken': "{{ csrf_token }}"
+        },
+        data: {},
+        dataType: 'json',
+        context: this
+      }
+    ).done(function(data){
+      var like_icon = $(this).children(".like-icon");
+      like_icon.toggleClass("text-muted");
+      like_icon.toggleClass("text-danger");
+    });
+  });
+  $('.consume-button').click(function() {
+    var consume_icon = $(this).children(".consume-icon");
+    if (consume_icon.hasClass("text-primary")) {
+      return;
+    }
+    var post_id = $(this).attr("data-id");
+    var url = "{% url 'posts:post' %}" + post_id + "/toggle_consume";
+    $.ajax(url,
+      {
+        type: 'post',
+        headers: {
+          'X-CSRFToken': "{{ csrf_token }}"
+        },
+        data: {},
+        dataType: 'json',
+        context: this
+      }
+    ).done(function(data){
+      var consume_icon = $(this).children(".consume-icon");
+      consume_icon.removeClass("text-muted");
+      consume_icon.addClass("text-primary");
+    });
+  });
+});
     {% block extend_js %}
     {% endblock %}
     </script>
