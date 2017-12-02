@@ -2,7 +2,7 @@
 
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-
+# from posts.models import Post
 
 class MyUser(AbstractUser):
     bio = models.CharField(max_length=1000, default='')
@@ -24,3 +24,4 @@ class MyUser(AbstractUser):
             return users[0]
         else:
             return None
+
