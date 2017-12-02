@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from accounts.models import MyUser
 
-def home(request, screen_name):
+def profile(request, screen_name):
     specified_user = MyUser.get_user_by_screen(screen_name)
     if specified_user:
         context = {"specified_user": specified_user}
@@ -16,3 +16,7 @@ def following(requests, screen_name):
 def followers(requests, screen_name):
     return HttpResponse(f'{screen_name} followers')
 
+def users(request):
+    users = MyUser.objects.all()
+    context = {"users": users}
+    return render(request, 'users/index.html', context)

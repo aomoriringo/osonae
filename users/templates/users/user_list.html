@@ -1,0 +1,10 @@
+{% if users|length > 0 %}
+  {% for user in users %}
+    {% include "users/user_card.html" %}
+  {% endfor %}
+{% else %}
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">No users yet.</h4>
+</div>
+{% endif %}
+
